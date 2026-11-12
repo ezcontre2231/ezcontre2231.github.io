@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-# Building Next-Gen Digital Experiences
+# Welcome to my portfolio
 
 Hi, I'm **[Your Name]** — a developer, designer, and problem solver focused on clean interfaces and modern tech.
 
