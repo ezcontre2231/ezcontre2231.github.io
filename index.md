@@ -1,28 +1,28 @@
 ---
 layout: default
-title: Home (test page)
+title: Home
 ---
 
-# Welcome to My E-Portfolio
+# Building Next-Gen Digital Experiences
 
-Hi, I'm **[test]**. Here is a collection of my work, skills, and projects.
+Hi, I'm **[Your Name]** — a developer, designer, and problem solver focused on clean interfaces and modern tech.
 
-## About Me
-* **[Background]** - explain
-* **[Research Interests]** - here
-
-## Experiences
-* **[Resume]**
-
-## Education
+<a href="#projects" class="btn">Explore My Work &darr;</a>
 
 ## Skills
+`Python` `JavaScript` `HTML/CSS` `Git` `UI/UX Design` `Linux` `SQL`
 
+## Projects
+* **[Project Alpha](https://github.com)** An automated web dashboard built with modern APIs and real-time data tracking.
+* **[CyberSec Analyzer](https://github.com)** A lightweight network monitoring tool designed to detect local vulnerabilities.
+* **[Design System UI](https://github.com)** A dark-mode component library crafted for high-contrast accessibility.
+* **[Portfolio v1](https://github.com)** A custom static site hosted on GitHub Pages with glassmorphism styling.
 
-## Featured Projects
-* **[Project Name 1](./projects.html)** - A brief one-sentence summary of what you built.
-* **[Project Name 2](./projects.html)** - A brief one-sentence summary of another project.
+## Experience
+* **Software Engineering Intern — Tech Corp (2025 – Present)** Built responsive frontend interfaces and automated internal testing workflows.
+* **B.S. in Computer Science — University Name (Expected 2027)** Relevant coursework in Data Structures, Algorithms, and Web Development.
 
 ## Contact
-* Email: your.email@example.com
-* LinkedIn: [Your Name](https://linkedin.com)
+* **Email** [your.email@example.com](mailto:your.email@example.com)
+* **GitHub** [://github.com](https://github.com)
+* **LinkedIn** [://linkedin.com](https://linkedin.com)
