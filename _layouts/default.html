@@ -4,72 +4,197 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | {{ site.title }}</title>
+  <link href="https://googleapis.com" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0f;
-      --card: #13131f;
+      --bg: #05050a;
+      --surface: rgba(18, 20, 32, 0.75);
+      --border: rgba(0, 240, 255, 0.2);
       --text: #e2e8f0;
-      --accent: #00f0ff;
-      --accent-secondary: #7000ff;
+      --muted: #94a3b8;
+      --cyan: #00f0ff;
+      --purple: #9d4edd;
     }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(157, 78, 221, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 80%, rgba(0, 240, 255, 0.1), transparent 35%),
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
       color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      max-width: 850px;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 1.5rem 5rem;
     }
+
+    /* Sticky Glass Navigation */
     nav {
+      position: sticky;
+      top: 1rem;
+      z-index: 100;
       display: flex;
-      gap: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid #1e293b;
-      margin-bottom: 2.5rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: rgba(10, 12, 22, 0.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
     }
-    nav a {
-      color: var(--accent);
+
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--cyan);
       text-decoration: none;
-      font-weight: 600;
-      text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: 0.9rem;
     }
-    nav a:hover { text-shadow: 0 0 8px var(--accent); }
-    h1, h2 { color: #ffffff; letter-spacing: -0.5px; }
+
+    .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+      text-shadow: 0 0 10px var(--cyan);
+    }
+
+    /* Typography & Section Spacing */
     h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(90deg, var(--accent), #a855f7);
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff, var(--cyan), var(--purple));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    a { color: var(--accent); }
-    ul { list-style: none; padding: 0; }
-    li {
-      background: var(--card);
-      border: 1px solid #1e293b;
-      border-left: 3px solid var(--accent);
-      padding: 1rem 1.25rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
+
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      color: var(--cyan);
+      margin: 4rem 0 1.25rem;
+      padding-top: 1rem;
+      scroll-margin-top: 5.5rem; /* Prevents sticky nav from covering headers */
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
+
+    h2::before {
+      content: "//";
+      color: var(--purple);
+    }
+
+    p { color: var(--muted); margin-bottom: 1.25rem; }
+
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Cards & Lists */
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    li {
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    li:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+      box-shadow: 0 8px 25px rgba(0, 240, 255, 0.15);
+    }
+
+    li strong {
+      display: block;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Skill Badges */
     code {
-      background: #1e293b;
-      color: var(--accent);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      background: rgba(0, 240, 255, 0.1);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 0.25rem 0.25rem 0.25rem 0;
+    }
+
+    /* Cyber Button */
+    .btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--bg);
+      background: var(--cyan);
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #ffffff;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/projects.html">Projects</a>
-    <a href="/resume.html">Resume</a>
-  </nav>
-  <main>
-    {{ content }}
-  </main>
+  <div class="container">
+    <nav>
+      <a href="#top" class="logo">&lt;PORTFOLIO /&gt;</a>
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <main id="top">
+      {{ content }}
+    </main>
+  </div>
 </body>
 </html>
