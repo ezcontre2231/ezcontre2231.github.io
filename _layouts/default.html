@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --card: #13131f;
+      --text: #e2e8f0;
+      --accent: #00f0ff;
+      --accent-secondary: #7000ff;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #1e293b;
+      margin-bottom: 2.5rem;
+    }
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+    nav a:hover { text-shadow: 0 0 8px var(--accent); }
+    h1, h2 { color: #ffffff; letter-spacing: -0.5px; }
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, var(--accent), #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    a { color: var(--accent); }
+    ul { list-style: none; padding: 0; }
+    li {
+      background: var(--card);
+      border: 1px solid #1e293b;
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+    }
+    code {
+      background: #1e293b;
+      color: var(--accent);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/resume.html">Resume</a>
+  </nav>
+  <main>
+    {{ content }}
+  </main>
+</body>
+</html>
